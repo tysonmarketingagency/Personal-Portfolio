@@ -192,6 +192,7 @@ img { display: block; max-width: 100%; }
   font-family: 'Playfair Display', serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 1.05;
+  padding-bottom: 0.1em;
   margin-bottom: 20px;
   background: linear-gradient(135deg, #fff 60%, var(--gold-lt));
   -webkit-background-clip: text;
@@ -705,7 +706,7 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+  .hero-inner { flex-direction: column; align-items: flex-start; gap: 32px; }
   .hero-photo-frame { width: 160px; height: 200px; }
 }
 
