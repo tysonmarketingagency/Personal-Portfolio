@@ -137,10 +137,41 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 
-.hero-content {
+.hero-inner {
   max-width: 1100px;
   margin: 0 auto;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-right {
+  flex-shrink: 0;
+}
+
+.hero-photo-frame {
+  width: 280px;
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid rgba(201,147,58,.4);
+  box-shadow: 0 24px 64px rgba(0,0,0,.4), 0 0 0 8px rgba(201,147,58,.08);
+  position: relative;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .hero-tag {
@@ -157,7 +188,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 20px;
 }
 
-.hero-content h1 {
+.hero-left h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 1.05;
@@ -216,7 +247,7 @@ img { display: block; max-width: 100%; }
 
 .hero-stats {
   max-width: 1100px;
-  margin: 64px auto 0;
+  margin: 56px auto 0;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -321,7 +352,20 @@ section:nth-child(even) { background: var(--off); }
   transform: translateY(-2px);
 }
 
-.highlight-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+.highlight-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: rgba(201,147,58,.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 .highlight-card strong {
   display: block;
@@ -374,7 +418,18 @@ section:nth-child(even) { background: var(--off); }
 
 .strength-card:hover::before { transform: scaleX(1); }
 
-.strength-icon { font-size: 2rem; margin-bottom: 16px; }
+.strength-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(201,147,58,.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+}
 
 .strength-card h3 {
   font-size: 1rem;
@@ -560,14 +615,11 @@ section:nth-child(even) { background: var(--off); }
 .cert-icon {
   width: 26px; height: 26px;
   min-width: 26px;
-  background: var(--gold);
-  color: var(--white);
-  border-radius: 50%;
+  color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .8rem;
-  font-weight: 700;
+  font-size: 1.1rem;
   margin-top: 2px;
 }
 
@@ -648,6 +700,13 @@ footer {
   .strengths-grid { grid-template-columns: repeat(2, 1fr); }
   .skills-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .hero-inner { gap: 40px; }
+  .hero-photo-frame { width: 220px; height: 270px; }
+}
+
+@media (max-width: 720px) {
+  .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+  .hero-photo-frame { width: 160px; height: 200px; }
 }
 
 @media (max-width: 640px) {
